@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exquisite Corpse</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .iframe-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            height: 800px; /* Full height of viewport */
+            width: 800px;
+	    margin: auto;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Remove borders between iframes */
+            /* remove scroll */
+            overflow: hidden;
+            
+	}
+    </style>
+    <script>
+	// store trinket link identifiers in variables
+	var topleft = "https://trinket.io/glowscript/a89ac5c2320f";
+	var topright = "https://trinket.io/glowscript/f6dab30400c4";
+	var bottomleft = "https://trinket.io/glowscript/20a9d16d92e0";
+	var bottomright = "https://trinket.io/glowscript/3435b6526e06";
+    </script>
+
+</head>
+<body>
+    <div class="iframe-container">
+        <! -- top left -->
+        <iframe id = "topleft" src="" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+        <! -- top right -->
+        <iframe id = "topright" src="" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>     
+        <! -- bottom left --> 
+        <iframe id = "bottomleft" src="" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+        <! -- bottom right -->
+        <iframe id = "bottomright" src="" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+    </div>
+<script>
+    // remove trinket branding from iframes
+    const iframes = document.querySelectorAll('iframe');
+    iframes.forEach(iframe => {
+	link = eval(iframe.id);
+	// format from https://trinket.io/glowscript/05142cbbddef to https://trinket.io/embed/glowscript/05142cbbddef?outputOnly=true&start=result
+	link = link.replace("https://trinket.io/glowscript/", "https://trinket.io/embed/glowscript/");
+	link = link + "?outputOnly=true&start=result";
+	iframe.src = link;
+    });
+
+</script>
+</body>
+</html>
